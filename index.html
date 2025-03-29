@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style>
+    body {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #video {
+      border: 2px solid black;
+      /* for positioning of camera */
+      transform: rotateY(180deg);
+    }
+    #canvas {
+      display: none;
+    }
+    #savedImg {
+      transform: rotateY(180deg);
+    }
+  </style>
+  <body>
+    <video id="video" muted autoplay width="720" height="500"></video>
+    <canvas id="canvas"></canvas>
+    <div class="my-div">
+      <!-- <img id="savedImg" alt="captured image" /> -->
+    </div>
+    <button class="clickBtn">Click</button>
+  </body>
+  <script src="script.js"></script>
+</html>
