@@ -22,17 +22,19 @@
     #canvas {
       display: none;
     }
-    #savedImg {
+    img {
       transform: rotateY(180deg);
     }
   </style>
   <body>
-    <video id="video" muted autoplay width="720" height="500"></video>
-    <canvas id="canvas"></canvas>
-    <div class="my-div">
-      <!-- <img id="savedImg" alt="captured image" /> -->
+    <div>
+      <div class="videoAndBtn">
+        <video id="video" muted autoplay width="720" height="500"></video>
+        <button class="clickBtn">Click</button>
+      </div>
+      <canvas id="canvas"></canvas>
+      <div class="my-div"></div>
     </div>
-    <button class="clickBtn">Click</button>
   </body>
   <script src="script.js"></script>
 </html>

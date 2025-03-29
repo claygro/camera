@@ -46,6 +46,29 @@ function displayImage(imageData) {
   img.setAttribute("src", imageData);
   img.classList.add("captured-img");
 
+  // Full-screen image feature
+  img.addEventListener("click", () => {
+    let fullScreenWrapper = document.createElement("div");
+    fullScreenWrapper.classList.add("full-screen-wrapper");
+
+    let fullScreenImg = document.createElement("img");
+    fullScreenImg.src = imageData;
+    fullScreenImg.classList.add("fullScreenImage");
+
+    let closeBtn = document.createElement("button");
+    closeBtn.innerHTML = "❌";
+    closeBtn.classList.add("full-screen-close-btn");
+
+    closeBtn.addEventListener("click", () => {
+      fullScreenWrapper.remove();
+    });
+
+    fullScreenWrapper.appendChild(fullScreenImg);
+    fullScreenWrapper.appendChild(closeBtn);
+    document.body.appendChild(fullScreenWrapper);
+  });
+
+  // Delete button
   let deleteBtn = document.createElement("button");
   deleteBtn.textContent = "Delete";
   deleteBtn.classList.add("delete-btn");
@@ -62,8 +85,11 @@ function displayImage(imageData) {
 // Remove image from localStorage
 function removeImageFromStorage(imageData) {
   let savedImages = JSON.parse(localStorage.getItem("images")) || [];
-  savedImages = savedImages.filter((img) => img !== imageData);
-  localStorage.setItem("images", JSON.stringify(savedImages));
+  let index = savedImages.indexOf(imageData);
+  if (index !== -1) {
+    savedImages.splice(index, 1);
+    localStorage.setItem("images", JSON.stringify(savedImages));
+  }
 }
 
 startVideo();
