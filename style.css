@@ -52,29 +52,42 @@ video {
 .image-container {
   position: relative;
   display: inline-block;
-  width: 150px;
+  background-color: white;
+  box-shadow: 4px 3px 9px black;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 15px;
 }
 
 .captured-img {
   width: 100%;
+  max-width: 200px;
   height: auto;
   object-fit: cover;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
-/* Delete button */
-.delete-btn {
+/* Buttons */
+.delete-btn,
+.downloadBtn {
   display: block;
   margin-top: 5px;
   width: 100%;
   padding: 8px;
-  background: red;
   color: white;
   border: none;
   cursor: pointer;
   border-radius: 3px;
   font-size: 14px;
+}
+
+.delete-btn {
+  background: red;
+}
+
+.downloadBtn {
+  background: rgb(0, 0, 108);
 }
 
 .delete-btn:hover {
@@ -122,29 +135,34 @@ video {
 
 /* Responsive design for mobile */
 @media (max-width: 600px) {
-  .video-container {
+  video {
     width: 100%;
   }
 
-  video {
-    width: 95%;
-  }
-
   .clickBtn {
-    width: 90%;
+    width: 100%;
     font-size: 14px;
     padding: 10px;
   }
 
+  .my-div {
+    padding: 5px;
+    gap: 5px;
+  }
+
   .image-container {
-    width: 120px;
+    width: 100px;
+    padding: 5px;
+    border-radius: 15px;
   }
 
   .captured-img {
-    width: 100%;
+    max-width: 100px;
+    height: auto;
   }
 
-  .delete-btn {
+  .delete-btn,
+  .downloadBtn {
     font-size: 12px;
     padding: 6px;
   }
@@ -157,6 +175,6 @@ video {
   .full-screen-close-btn {
     top: 10px;
     right: 10px;
-    font-size: 18px;
+    font-size: 16px;
   }
 }

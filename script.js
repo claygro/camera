@@ -28,7 +28,7 @@ clickBtn.addEventListener("click", () => {
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
+  // drawImage syntax: ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
   const imageData = canvas.toDataURL("image/png");
   let savedImages = JSON.parse(localStorage.getItem("images")) || [];
   savedImages.push(imageData);
@@ -80,6 +80,16 @@ function displayImage(imageData) {
   imgContainer.appendChild(img);
   imgContainer.appendChild(deleteBtn);
   myDiv.appendChild(imgContainer);
+  //for download image
+  let downloadImage = document.createElement("button");
+  let anchorTag = document.createElement("a");
+  anchorTag.style.textDecoration = "none";
+  downloadImage.textContent = "Download";
+  downloadImage.classList.add("downloadBtn");
+  anchorTag.appendChild(downloadImage);
+  anchorTag.setAttribute("href", imageData);
+  anchorTag.setAttribute("download", "");
+  imgContainer.appendChild(anchorTag);
 }
 
 // Remove image from localStorage
